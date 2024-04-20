@@ -6,6 +6,7 @@
   background-color: aquamarine;
   flex-grow: 1;
   flex-basis: 30%;
+  padding: 25px;
 }
 
 .multi-function-area {
@@ -34,4 +35,11 @@
 }
 .searchBox > button:focus {
   cursor: pointer;
+}
+
+.WC-img-container {
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

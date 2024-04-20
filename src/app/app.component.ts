@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { OpenWeatherService } from './Services/open-weather.service';
+import { cwaWeekWF91 } from './Services/cwa-weekWF-91';
 import { Cities, CityBy7Days } from './Services/city-by7-days';
 
 @Component({
@@ -11,12 +11,13 @@ export class AppComponent {
   weatherData: CityBy7Days[] | null = null;
   cities = Cities;
   searchCity: string = '';
-  constructor(private service: OpenWeatherService) {
+  constructor(private service: cwaWeekWF91) {
     this.searchChanged('臺北市');
   }
   searchChanged(city: string) {
-    this.service
-      .get7Days(city)
-      .subscribe((result) => (this.weatherData = result));
+    this.service.get7Days(city).subscribe((result) => {
+      console.log(result);
+      this.weatherData = result;
+    });
   }
 }

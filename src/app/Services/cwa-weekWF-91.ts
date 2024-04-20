@@ -5,12 +5,13 @@ import { map } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class OpenWeatherService {
+export class cwaWeekWF91 {
   url = 'https://opendata.cwa.gov.tw/api/v1/rest/datastore/';
   apiKey = 'CWA-AE5691B9-8AF5-49ED-9263-D311253874DE';
   constructor(private http: HttpClient) {}
 
   paddingLeft(str: string, length: number): string {
+    //給與正確圖片編號
     if (str.length >= length) return str;
     else return this.paddingLeft('0' + str, length);
   }
@@ -133,6 +134,7 @@ export class OpenWeatherService {
     // return cityBy7Days;
     // 篩選出當天之後 5 天的資料
     const today = new Date().toISOString().slice(0, 10);
-    return cityBy7Days.filter((item) => item.Date >= today).slice(0, 5);
+    console.log(today);
+    return cityBy7Days.filter((item) => item.Date > today).slice(0, 5);
   }
 }

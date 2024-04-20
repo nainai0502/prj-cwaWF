@@ -1,6 +1,8 @@
 <!-- 1 note:應該要用到d-flex的變形 -->
-<div class="d-flex root justify-content-between">
-  <div class="current-day"><app-current-day-wf></app-current-day-wf></div>
+<div class="d-lg-flex root justify-content-between">
+  <div class="current-day d-flex">
+    <!-- <app-current-day-wf></app-current-day-wf> -->
+  </div>
   <div class="multi-function-area">
     <!-- 搜尋功能 -->
     <div class="searchBox d-flex justify-content-end">
@@ -13,12 +15,16 @@
     <div class="weather-card-area">
       <div class="card-group">
         <div class="card" *ngFor="let item of weatherData">
-          <div class="card-body">
-            <h5 class="card-title">{{ item.Date }} {{ item.DayOfWeek }}</h5>
-            <img [src]="item.AMWXValue" class="" />
-            <p class="card-text">test</p>
+          <div class="card-body text-center">
+            <h5 class="card-title d-flex flex-nowrap justify-content-center">
+              {{ item.Date }}
+            </h5>
+            <h6 class="card-title mb-3">{{ item.DayOfWeek }}</h6>
+            <div class="WC-img-container mb-3">
+              <img [src]="item.AMWXValue" class="img-fluid mw-100" />
+            </div>
             <p class="card-text">
-              <small class="text-muted">Last updated 3 mins ago</small>
+              <small class="text-muted">{{ item.AMWX }}</small>
             </p>
           </div>
         </div>
