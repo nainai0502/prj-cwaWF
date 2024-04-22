@@ -1,9 +1,24 @@
-<!-- 1 note:應該要用到d-flex的變形 -->
 <div class="d-lg-flex root justify-content-between">
-  <div class="current-day d-flex">
+  <div class="current-day p-4 me-3 d-flex flex-lg-column">
+    <div
+      class="d-flex justify-content-center align-items-center currWF-img-container"
+    >
+      <img [src]="c36HoursweatherData?.[0]?.currWXValue" alt="圖片" />
+    </div>
+    <h2 class="d-flex justify-content-center align-items-center">
+      <span>{{c36HoursweatherData?.[0]?.currMinT}}度</span>
+    </h2>
+    <h6 class="d-flex justify-content-center align-items-center">Today</h6>
+    <p class="d-flex justify-content-center align-items-center">台北市</p>
+    <p class="d-flex justify-content-center align-items-center small">
+      {{c36HoursweatherData?.[0]?.currWX}}
+    </p>
+    <p class="d-flex justify-content-center align-items-center small">
+      {{c36HoursweatherData?.[0]?.currPoP}}%
+    </p>
     <!-- <app-current-day-wf></app-current-day-wf> -->
   </div>
-  <div class="multi-function-area">
+  <div class="multi-function-area d-flex flex-column">
     <!-- 搜尋功能 -->
     <div class="searchBox d-flex justify-content-end">
       <button>
@@ -14,7 +29,7 @@
     <!-- 卡片顯示功能 -->
     <div class="weather-card-area">
       <div class="card-group">
-        <div class="card" *ngFor="let item of weatherData">
+        <div class="card" *ngFor="let item of c7DaysweatherData">
           <div class="card-body text-center">
             <h5 class="card-title d-flex flex-nowrap justify-content-center">
               {{ item.Date }}

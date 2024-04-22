@@ -3,10 +3,10 @@
 }
 
 .current-day {
-  background-color: aquamarine;
+  background: linear-gradient(to bottom, #8a9fb5 0%, #cecfd0 100%);
+  /* 其他樣式 */
   flex-grow: 1;
   flex-basis: 30%;
-  padding: 25px;
 }
 
 .multi-function-area {
@@ -15,7 +15,7 @@
   flex-basis: 70%;
 }
 .weather-card-area {
-  background-color: dodgerblue;
+  /* background-color: dodgerblue; */
 }
 
 .searchBox {
@@ -42,4 +42,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.currWF-img-container {
+  height: 120px;
 }

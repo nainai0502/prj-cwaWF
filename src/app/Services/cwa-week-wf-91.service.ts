@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { CityBy7Days } from './city-by7-days';
+import { CityBy7Days } from '../Classes/city-by7-days';
 import { map } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class cwaWeekWF91 {
+export class cwaWeekWF91Service {
   url = 'https://opendata.cwa.gov.tw/api/v1/rest/datastore/';
   apiKey = 'CWA-AE5691B9-8AF5-49ED-9263-D311253874DE';
   constructor(private http: HttpClient) {}
@@ -115,7 +115,6 @@ export class cwaWeekWF91 {
 
     location.forEach((location: any) => {
       let city = location.locationName;
-      console.log(city);
       let weatherElement = location.weatherElement;
       weatherElement.forEach((element: any) => {
         switch (element.elementName) {
