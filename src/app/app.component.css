@@ -6,35 +6,19 @@
   background: linear-gradient(to bottom, #8a9fb5 0%, #cecfd0 100%);
   /* 其他樣式 */
   flex-grow: 1;
-  flex-basis: 30%;
+}
+
+.currWF-img-container {
+  height: 120px;
 }
 
 .multi-function-area {
   /* background-color: palevioletred; */
   flex-grow: 3;
-  flex-basis: 70%;
-}
-.weather-card-area {
-  /* background-color: dodgerblue; */
 }
 
-.searchBox {
-  /* background-color: #aaa; */
-  padding-bottom: 95px;
-}
-.searchBox > input {
-  border: none;
-  background-color: #f7f4f4;
-}
-.searchBox > input:focus {
-  outline: none;
-}
-.searchBox > button {
-  background-color: #f7f4f4;
-  border: none;
-}
-.searchBox > button:focus {
-  cursor: pointer;
+.weather-card-area {
+  /* background-color: dodgerblue; */
 }
 
 .WC-img-container {
@@ -43,6 +27,7 @@
   justify-content: center;
   align-items: center;
 }
-.currWF-img-container {
-  height: 120px;
+
+.card-title {
+  /* font-size: 17px; */
 }

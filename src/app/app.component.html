@@ -1,5 +1,5 @@
-<div class="d-lg-flex root justify-content-between">
-  <div class="current-day p-4 me-3 d-flex flex-lg-column">
+<div class="d-lg-flex root">
+  <div class="current-day p-4 d-flex flex-lg-column col-lg-4 my-3">
     <div
       class="d-flex justify-content-center align-items-center currWF-img-container"
     >
@@ -9,7 +9,9 @@
       <span>{{c36HoursweatherData?.[0]?.currMinT}}度</span>
     </h2>
     <h6 class="d-flex justify-content-center align-items-center">Today</h6>
-    <p class="d-flex justify-content-center align-items-center">台北市</p>
+    <p class="d-flex justify-content-center align-items-center">
+      {{c36HoursweatherData?.[0]?.City}}
+    </p>
     <p class="d-flex justify-content-center align-items-center small">
       {{c36HoursweatherData?.[0]?.currWX}}
     </p>
@@ -18,14 +20,17 @@
     </p>
     <!-- <app-current-day-wf></app-current-day-wf> -->
   </div>
-  <div class="multi-function-area d-flex flex-column">
+  <div
+    class="multi-function-area d-flex flex-column justify-content-between col-lg-8 my-3 ps-lg-3"
+  >
     <!-- 搜尋功能 -->
-    <div class="searchBox d-flex justify-content-end">
-      <button>
-        <i class="bi bi-search"></i>
-      </button>
-      <input type="text" placeholder="請輸入搜尋內容" />
+    <div class="d-flex justify-content-end mb-1">
+      <select #city (change)="searchChanged(city.value)" class="form-select">
+        <option selected>--請選擇城市--</option>
+        <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+      </select>
     </div>
+
     <!-- 卡片顯示功能 -->
     <div class="weather-card-area">
       <div class="card-group">
@@ -34,8 +39,8 @@
             <h5 class="card-title d-flex flex-nowrap justify-content-center">
               {{ item.Date }}
             </h5>
-            <h6 class="card-title mb-3">{{ item.DayOfWeek }}</h6>
-            <div class="WC-img-container mb-3">
+            <h6 class="card-title mb-4">{{ item.DayOfWeek }}</h6>
+            <div class="WC-img-container mb-4">
               <img [src]="item.AMWXValue" class="img-fluid mw-100" />
             </div>
             <p class="card-text">
